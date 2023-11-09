@@ -27,7 +27,19 @@ module.exports.ipLoc = function (IP) {
         {
             //START:TODO - GeoLocation Logic to Implement
 
-            
+           //Find the geolocation using the IP input from the local file, and return ip, country and city
+              result = ip2location.getAll(IP);
+                returnObj = {
+                    ip: result.ip,
+                    country: result.country_long,
+                    city: result.city
+                };
+            // Log debug information
+            if (debug) {
+                console.log(`${_func}: returnObj -> ${JSON.stringify(returnObj)}`);
+            }
+             // Return the object
+            return returnObj;
             //END:TODO
         }        
 
